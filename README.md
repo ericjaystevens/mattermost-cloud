@@ -30,11 +30,15 @@ git clone  https://github.com/mattermost/mattermost-cloud.git
 
 From cloned repository run
 
-```docker build```
+```
+docker build -t mattermost:clouddev .
+```
 
 #### Modify Environment file
 
-```cp mattermost-cloud.sample mattermost-cloud.env```
+```
+cp mattermost-cloud.sample mattermost-cloud.env
+```
 
 In your preferred text editor open and edit ```mattermost-cloud.env```
 
@@ -44,7 +48,7 @@ In your preferred text editor open and edit ```mattermost-cloud.env```
 Before running the server the first time you must set up the DB with:
 
 ```
-$ docker run --env-file=mattermost-cloud.env mattermost:cloudev cloud schema migrate
+$ docker run --env-file=mattermost-cloud.env mattermost:clouddev cloud schema migrate
 ```
 
 To run the server you will need a certificate ARN, private and public Route53 IDs, and a private DNS from AWS. For staff developers you can get these in our dev AWS account.
